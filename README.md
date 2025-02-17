@@ -1,3 +1,3 @@
 # full_stack
 
-serve para armazenar conteudos e tarefas da saala de aula.
+serve para armazenar conteudos e tarefas da sala de aula.
