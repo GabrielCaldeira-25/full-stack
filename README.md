@@ -9,3 +9,5 @@ display: flex;
 justify-content: center;
 align-items: center;
 
+Para colocar borda:
+border-radius: 25px;

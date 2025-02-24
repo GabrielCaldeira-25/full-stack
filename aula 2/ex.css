@@ -1,0 +1,25 @@
+
+li{
+    color:black;
+    text-decoration: none;
+    list-style: none;
+    margin-left: 32px;
+    letter-spacing: 1px;
+  display: inline-block;
+
+}
+a{
+    color:black;
+  list-style: none;
+  text-decoration: none;
+
+   
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.imagem{
+    padding-right: 700px;
+}
