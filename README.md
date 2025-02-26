@@ -11,3 +11,8 @@ align-items: center;
 
 Para colocar borda:
 border-radius: 25px;
+------//------//--------
+height: 8vh;
+display: flex;
+justify-content: space-around;
+align-items: center;
