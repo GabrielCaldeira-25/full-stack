@@ -85,3 +85,10 @@ main{
     padding-left: 400px;
     padding-right: 400px;
 }
+.title4{
+    font-size: 40px;
+    color: black;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
