@@ -2,9 +2,9 @@ body{
    background-color:  lightgray;
    
 }
-div{
+.title{
 background-color: bisque;
-border: 3px solid rgb(0, 19, 105);   
+border: 5px solid rgb(0, 19, 105);   
 padding: 15px; 
 
 
@@ -91,4 +91,53 @@ main{
    display: flex;
    justify-content: center;
    align-items: center;
+}
+.iframe{
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 400px;
+    padding-right: 400px;
+}
+.minititle3{
+    font-size: 40px;
+    color: black;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+th{
+    border: 1px solid red;
+    color: black;
+    height: 40px;
+    width: 200px;
+}
+.titulo1{
+    color: red;
+}
+.titulo2{
+    color: red;
+}
+  
+   
+
+
+.tabela{
+    border: 3px dashed red; 
+    margin-right:734px;
+    margin-left: 734px;
+}
+
+header{
+    background-color: yellow;
+    margin-left:700px;
+    margin-right:700px;
+}
+.final{
+    background-color: rgb(255, 233, 207);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Comic Sans MS;
+    font-size: 15pt;
 }
