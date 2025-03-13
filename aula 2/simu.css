@@ -1,0 +1,25 @@
+
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container1{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 5px;
+    background-color: rgb(114, 81, 114);
+}
+.first{
+    color: white;
+    font-size: 20px;
+}
+a{
+color: rgb(51, 100, 145);
+}
+.links{
+    display: flex;
+    justify-content: center;
+   
+}
