@@ -1,0 +1,49 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container1{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-right: 5px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    background-color: rgb(114, 81, 114);
+    height: 10vh;
+}
+.first{
+    color: white;
+    font-size: 18px;
+    
+
+}
+.second{
+    color: white;
+    font-size: 25px;
+}
+.terceiro{
+    color: white;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+a{
+color: rgb(51, 100, 145);
+}
+.links{
+    display: flex;
+    justify-content: center;
+   
+}
+.linha{
+    background-color: gray;
+    height: 1px;
+    margin-top: 15px;
+}
