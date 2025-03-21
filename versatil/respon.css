@@ -1,0 +1,23 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+.c1{
+    background-color: gray;
+    padding: 20px
+}
+.c2{
+    background-color: rgb(160, 158, 158);
+    padding: 20px
+}
+.c3{
+    background-color: rgb(180, 180, 180);
+    padding: 20px
+}
+.test{
+    display: flex;
+    justify-content: center;
+}
+@media (max-width: 800px){
+    .test{ flex-direction: column;}
+}
