@@ -1,0 +1,18 @@
+.cadastro{
+    font-size: 30px;
+}
+.login{
+    background-color: rgb(204, 204, 204);
+    padding: 30px;
+    padding-left: 110px;
+    margin-left:750px;
+    margin-right:750px;
+    margin-top: 200px;
+    border-radius: 20px;
+}
+#mostrar{
+    margin-left:40px ;
+}
+#limpar{
+    margin-left: 20px;
+}
