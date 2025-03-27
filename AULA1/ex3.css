@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+    background-color: #f4f4f4;
+}
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+    max-width: 400px;
+    margin: auto;
+}
+input {
+    width: 90%;
+    padding: 8px;
+    margin: 10px 0;
+    display: block;
+}
+button {
+    width: 100px;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+.btn-cadastrar { background-color: rgb(66, 66, 66); color: white; }
+.btn-limpar { background-color: rgb(66, 66, 66); color: white; }
+.btn-mostrar { background-color: rgb(66, 66, 66); color: white; }
