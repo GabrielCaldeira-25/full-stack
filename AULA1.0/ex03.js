@@ -17,21 +17,3 @@ function cadastrar() {
     localStorage.setItem("cadastro", JSON.stringify(usuario));
     alert("Cadastro realizado com sucesso!");
 }
-
-function limpar() {
-    localStorage.removeItem("cadastro");
-    document.getElementById("dados").textContent = "";
-    alert("Cadastro apagado!");
-}
-
-function mostrarDados() {
-    let dadosSalvos = localStorage.getItem("cadastro");
-
-    if (!dadosSalvos) {
-        alert("Nenhum cadastro encontrado!");
-        return;
-    }
-
-    let usuario = JSON.parse(dadosSalvos);
-    document.getElementById("dados").textContent = `Nome: ${usuario.nome}, Login: ${usuario.login}`;
-}

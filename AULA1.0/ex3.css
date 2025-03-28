@@ -1,16 +1,18 @@
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 50px;
-    background-color: #f4f4f4;
+    background-color: #8b8b8b;
 }
 .container {
     background: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px gray;
+    box-shadow: 0px 0px 10px rgb(209, 209, 209);
     max-width: 400px;
     margin: auto;
+    margin-top: 250px;
 }
 input {
     width: 90%;
@@ -29,3 +31,25 @@ button {
 .btn-cadastrar { background-color: rgb(66, 66, 66); color: white; }
 .btn-limpar { background-color: rgb(66, 66, 66); color: white; }
 .btn-mostrar { background-color: rgb(66, 66, 66); color: white; }
+
+.cadastro{
+    font-size: 30px;
+}
+.login{
+    background-color: rgb(204, 204, 204);
+    padding: 30px;
+    padding-left: 110px;
+    margin-left:750px;
+    margin-right:750px;
+    margin-top: 200px;
+    border-radius: 20px;
+}
+#mostrar{
+    margin-left:40px ;
+}
+#limpar{
+    margin-left: 20px;
+}
+button:hover{
+    opacity: 0.7;
+}
