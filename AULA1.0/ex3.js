@@ -20,7 +20,7 @@ function cadastrar() {
 
 function limpar() {
     localStorage.removeItem("cadastro");
-    document.getElementById("dados").textContent = "";
+    document.getElementById("dados") = "";
     alert("Cadastro apagado!");
 }
 
