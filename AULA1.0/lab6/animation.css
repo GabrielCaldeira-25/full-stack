@@ -1,0 +1,14 @@
+#bolinha{
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    margin-left: 800px;
+    
+}
+.title{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
