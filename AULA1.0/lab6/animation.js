@@ -7,7 +7,7 @@ let bola = {
     raio:10,
     img: new Image(),
     desenhar: function(){
-        this.img.src = 'bolinha.jpg'
+        this.img.src = 'foguetinho.png'
         ctx.beginPath()
         ctx.drawImage(this.img, this.x - this.raio, this.y - this.raio, 2*this.raio, 2*this.raio)
         ctx.closePath()
@@ -30,16 +30,16 @@ document.addEventListener ('mousemove', function(evento){
     console.log(x_mouse,y_mouse)
     bola.x = x_mouse
     bola.y = y_mouse
-    if (bola.x > 300 - 2*bola.raio ){
+    if (bola.x > 290){
         bola.x = 290
     }
-    if (bola.y > 300 - 2*bola.raio){
+    if (bola.y > 290){
         bola.y = 290
     }
-    if (bola.x < 0 + 2*bola.raio){
+    if (bola.x < 10){
         bola.x = 10
     }
-    if (bola.y < 0 + 2*bola.raio){
+    if (bola.y < 10){
         bola.y = 10
     }
 })
