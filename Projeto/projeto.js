@@ -14,6 +14,7 @@ let asteroides = [];
 let velocidadeAsteroide = 2;
 let jogoAtivo = true; 
 let somTiro = new Audio('tiro.mp3');
+
 // Jogador
 let retangulo = {
     x: 35,
@@ -34,7 +35,6 @@ let retangulo = {
         if(teclasPressionadas['w'] || teclasPressionadas['arrowup']) this.y -= 5;
         if(teclasPressionadas['s'] || teclasPressionadas['arrowdown']) this.y += 5;
 
-        
         if(this.y > 450) this.y = 450;
         if(this.y < -10) this.y = -10;
     }
@@ -53,7 +53,7 @@ function criarAsteroide() {
         destruido: false,
         explosaoImg: new Image(),
         frameExplosao: 0,
-        totalFrames: 6,
+        totalFrames: 5,
         frameLargura: 64,
         tempoEntreFrames: 5,
         contadorTempo: 0,
@@ -95,7 +95,7 @@ function criarAsteroide() {
     };
 
     novo.img.src = 'asteroid.png';
-    novo.explosaoImg.src = 'explosao.png';
+    novo.explosaoImg.src = 'explosao_64px.png';
 
     asteroides.push(novo);
 }
@@ -155,6 +155,11 @@ function colidiu(a, b) {
            a.y + a.altura > b.y;
 }
 
+// Modal: função para reiniciar
+function reiniciarJogo() {
+    location.reload(); 
+}
+
 // Animação principal
 function animacao() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -166,10 +171,9 @@ function animacao() {
         asteroides[i].mover();
         asteroides[i].desenha();
 
-        
         if (asteroides[i].x <= 0 && !asteroides[i].destruido) {
             jogoAtivo = false;
-            alert("💥 Game Over!");
+            document.getElementById("modalGameOver").style.display = "flex"; // << MODAL AQUI
             return;
         }
     }

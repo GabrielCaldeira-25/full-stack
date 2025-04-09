@@ -4,3 +4,46 @@
     left:25%;
     top: 20%;
 }
+#modalGameOver {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+#modalGameOver .modal-content {
+    background: #222;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    max-width: 400px;
+    width: 90%;
+}
+
+#modalGameOver h1 {
+    color: red;
+    margin-bottom: 15px;
+}
+
+#modalGameOver button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+#modalGameOver button:hover {
+    background-color: #d32f2f;
+}
