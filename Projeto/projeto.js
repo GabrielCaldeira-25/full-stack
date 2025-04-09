@@ -1,7 +1,6 @@
 let canvas = document.getElementById('jogo');
 let ctx = canvas.getContext('2d');
 
-
 let teclasPressionadas = {
     w: false,
     s: false,
@@ -12,9 +11,9 @@ let teclasPressionadas = {
 
 let tiros = [];
 let asteroides = [];
-
 let velocidadeAsteroide = 2;
-
+let jogoAtivo = true; 
+let somTiro = new Audio('tiro.mp3');
 // Jogador
 let retangulo = {
     x: 35,
@@ -35,15 +34,14 @@ let retangulo = {
         if(teclasPressionadas['w'] || teclasPressionadas['arrowup']) this.y -= 5;
         if(teclasPressionadas['s'] || teclasPressionadas['arrowdown']) this.y += 5;
 
-        if(this.x > 400) this.x = 400;
-        if(this.x < 0) this.x = 0;
+        
         if(this.y > 450) this.y = 450;
         if(this.y < -10) this.y = -10;
     }
 };
 retangulo.img.src = 'foguete.png';
 
-// Criação de asteroides
+// Asteroides
 function criarAsteroide() {
     let yAleatorio = Math.random() * (canvas.height - 50);
     let novo = {
@@ -102,11 +100,13 @@ function criarAsteroide() {
     asteroides.push(novo);
 }
 
-// Criar asteroides inicial e ao longo do tempo
+// Criar asteroides
 for (let i = 0; i < 5; i++) criarAsteroide(); 
-setInterval(criarAsteroide, 900);
+setInterval(() => {
+    if (jogoAtivo) criarAsteroide();
+}, 900);
 
-// Criação de tiros
+// Tiros
 function criarTiro(x, y) {
     return {
         x: x + 45,
@@ -133,8 +133,10 @@ document.addEventListener('keydown', function(event){
 
     if (tecla === ' ') {
         let agora = Date.now();
-        if (agora - ultimoTiro > intervaloTiro) {
+        if (agora - ultimoTiro > intervaloTiro && jogoAtivo) {
             tiros.push(criarTiro(retangulo.x, retangulo.y));
+            somTiro.currentTime = 0;  
+            somTiro.play();          
             ultimoTiro = agora;
         }
     }
@@ -145,7 +147,7 @@ document.addEventListener('keyup', function(event){
     teclasPressionadas[tecla] = false;
 });
 
-// Detecção de colisão
+// Colisão
 function colidiu(a, b) {
     return a.x < b.x + b.largura &&
            a.x + a.largura > b.x &&
@@ -153,26 +155,31 @@ function colidiu(a, b) {
            a.y + a.altura > b.y;
 }
 
-
-function animacao(){
+// Animação principal
+function animacao() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     retangulo.mover();
     retangulo.desenha();
 
-   
     for (let i = 0; i < asteroides.length; i++) {
         asteroides[i].mover();
         asteroides[i].desenha();
+
+        
+        if (asteroides[i].x <= 0 && !asteroides[i].destruido) {
+            jogoAtivo = false;
+            alert("💥 Game Over!");
+            return;
+        }
     }
 
-  
     for (let i = 0; i < tiros.length; i++) {
         tiros[i].atualizar();
         tiros[i].desenha();
     }
 
-    
+    // Verifica colisões
     for (let i = 0; i < tiros.length; i++) {
         for (let j = 0; j < asteroides.length; j++) {
             if (!asteroides[j].destruido && colidiu(tiros[i], asteroides[j])) {
@@ -184,12 +191,11 @@ function animacao(){
         }
     }
 
-   
     tiros = tiros.filter(tiro => tiro.x < canvas.width);
-
-    
     asteroides = asteroides.filter(a => !(a.destruido && a.frameExplosao >= a.totalFrames));
 
-    requestAnimationFrame(animacao);
+    if (jogoAtivo) {
+        requestAnimationFrame(animacao);
+    }
 }
 animacao();
