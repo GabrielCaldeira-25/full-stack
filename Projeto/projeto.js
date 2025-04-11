@@ -15,7 +15,7 @@ let velocidadeAsteroide = 2;
 let jogoAtivo = true; 
 let somTiro = new Audio('tiro.mp3');
 
-// Jogador
+
 let retangulo = {
     x: 35,
     y: 225,
@@ -41,7 +41,7 @@ let retangulo = {
 };
 retangulo.img.src = 'foguete.png';
 
-// Asteroides
+
 function criarAsteroide() {
     let yAleatorio = Math.random() * (canvas.height - 50);
     let novo = {
@@ -51,12 +51,6 @@ function criarAsteroide() {
         altura: 50,
         img: new Image(),
         destruido: false,
-        explosaoImg: new Image(),
-        frameExplosao: 0,
-        totalFrames: 5,
-        frameLargura: 64,
-        tempoEntreFrames: 5,
-        contadorTempo: 0,
 
         mover: function () {
             if (!this.destruido) {
@@ -65,48 +59,88 @@ function criarAsteroide() {
         },
 
         desenha: function () {
-            if (this.destruido) {
-                if (this.frameExplosao < this.totalFrames) {
-                    let sx = this.frameExplosao * this.frameLargura;
-                    ctx.drawImage(
-                        this.explosaoImg,
-                        sx, 0,
-                        this.frameLargura, this.frameLargura,
-                        this.x, this.y,
-                        this.largura, this.altura
-                    );
-                    this.contadorTempo++;
-                    if (this.contadorTempo >= this.tempoEntreFrames) {
-                        this.frameExplosao++;
-                        this.contadorTempo = 0;
-                    }
-                }
-            } else {
-                if (this.img.complete) {
-                    ctx.drawImage(this.img, this.x, this.y, this.largura, this.altura);
-                }
+            if (!this.destruido && this.img.complete) {
+                ctx.drawImage(this.img, this.x, this.y, this.largura, this.altura);
             }
         },
 
         explodir: function () {
             this.destruido = true;
-            this.frameExplosao = 0;
         }
     };
 
     novo.img.src = 'asteroid.png';
-    novo.explosaoImg.src = 'explosao_64px.png';
-
     asteroides.push(novo);
 }
 
-// Criar asteroides
+
+function criarAsteroideGrande() {
+    let novo = {
+        x: canvas.width + Math.random() * 200,
+        y: 150,
+        largura: 200,
+        altura: 200,
+        vida: 20,
+        img: new Image(),
+        destruido: false,
+
+        mover: function () {
+            if (!this.destruido) {
+                this.x -= velocidadeAsteroide * 0.6;
+            }
+        },
+
+        desenha: function () {
+            if (!this.destruido) {
+                if (this.img.complete) {
+                    ctx.drawImage(this.img, this.x, this.y, this.largura, this.altura);
+                } else {
+                    this.img.onload = () => {
+                        ctx.drawImage(this.img, this.x, this.y, this.largura, this.altura);
+                    };
+                }
+
+                // Barra de vida
+                ctx.fillStyle = "red";
+                ctx.fillRect(this.x, this.y - 10, this.largura, 5);
+                ctx.fillStyle = "green";
+                ctx.fillRect(this.x, this.y - 10, (this.vida / 20) * this.largura, 5);
+            }
+        },
+
+        tomarDano: function () {
+            this.vida--;
+            if (this.vida <= 0) {
+                this.explodir();
+            }
+        },
+
+        explodir: function () {
+            this.destruido = true;
+            console.log("Asteroide gigante destruído!");
+        }
+    };
+
+    novo.img.src = 'asteroid.png';
+    asteroides.push(novo);
+    console.log("Asteroide gigante entrou!");
+}
+
+
 for (let i = 0; i < 5; i++) criarAsteroide(); 
-setInterval(() => {
+let intervaloAsteroid = setInterval(() => {
     if (jogoAtivo) criarAsteroide();
 }, 900);
 
-// Tiros
+
+setTimeout(() => {
+    if (jogoAtivo) {
+        criarAsteroideGrande();
+        clearInterval(intervaloAsteroid);
+    }
+}, 10000);
+
+
 function criarTiro(x, y) {
     return {
         x: x + 45,
@@ -147,7 +181,7 @@ document.addEventListener('keyup', function(event){
     teclasPressionadas[tecla] = false;
 });
 
-// Colisão
+
 function colidiu(a, b) {
     return a.x < b.x + b.largura &&
            a.x + a.largura > b.x &&
@@ -155,12 +189,12 @@ function colidiu(a, b) {
            a.y + a.altura > b.y;
 }
 
-// Modal: função para reiniciar
+
 function reiniciarJogo() {
     location.reload(); 
 }
 
-// Animação principal
+
 function animacao() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -173,7 +207,7 @@ function animacao() {
 
         if (asteroides[i].x <= 0 && !asteroides[i].destruido) {
             jogoAtivo = false;
-            document.getElementById("modalGameOver").style.display = "flex"; // << MODAL AQUI
+            document.getElementById("modalGameOver").style.display = "flex";
             return;
         }
     }
@@ -183,11 +217,15 @@ function animacao() {
         tiros[i].desenha();
     }
 
-    // Verifica colisões
+   
     for (let i = 0; i < tiros.length; i++) {
         for (let j = 0; j < asteroides.length; j++) {
             if (!asteroides[j].destruido && colidiu(tiros[i], asteroides[j])) {
-                asteroides[j].explodir();
+                if (asteroides[j].vida !== undefined) {
+                    asteroides[j].tomarDano();
+                } else {
+                    asteroides[j].explodir();
+                }
                 tiros.splice(i, 1);
                 i--;
                 break;
@@ -196,7 +234,7 @@ function animacao() {
     }
 
     tiros = tiros.filter(tiro => tiro.x < canvas.width);
-    asteroides = asteroides.filter(a => !(a.destruido && a.frameExplosao >= a.totalFrames));
+    asteroides = asteroides.filter(a => !a.destruido);
 
     if (jogoAtivo) {
         requestAnimationFrame(animacao);
