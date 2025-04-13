@@ -15,7 +15,6 @@ let velocidadeAsteroide = 2;
 let jogoAtivo = true; 
 let somTiro = new Audio('tiro.mp3');
 
-
 let retangulo = {
     x: 35,
     y: 225,
@@ -40,7 +39,6 @@ let retangulo = {
     }
 };
 retangulo.img.src = 'foguete.png';
-
 
 function criarAsteroide() {
     let yAleatorio = Math.random() * (canvas.height - 50);
@@ -73,14 +71,13 @@ function criarAsteroide() {
     asteroides.push(novo);
 }
 
-
 function criarAsteroideGrande() {
     let novo = {
         x: canvas.width + Math.random() * 200,
         y: 150,
         largura: 200,
         altura: 200,
-        vida: 20,
+        vida: 25,
         img: new Image(),
         destruido: false,
 
@@ -100,11 +97,10 @@ function criarAsteroideGrande() {
                     };
                 }
 
-                // Barra de vida
                 ctx.fillStyle = "red";
                 ctx.fillRect(this.x, this.y - 10, this.largura, 5);
                 ctx.fillStyle = "green";
-                ctx.fillRect(this.x, this.y - 10, (this.vida / 20) * this.largura, 5);
+                ctx.fillRect(this.x, this.y - 10, (this.vida / 25) * this.largura, 5);
             }
         },
 
@@ -126,7 +122,6 @@ function criarAsteroideGrande() {
     console.log("Asteroide gigante entrou!");
 }
 
-
 for (let i = 0; i < 5; i++) criarAsteroide(); 
 let intervaloAsteroid = setInterval(() => {
     if (jogoAtivo) criarAsteroide();
@@ -135,11 +130,46 @@ let intervaloAsteroid = setInterval(() => {
 
 setTimeout(() => {
     if (jogoAtivo) {
-        criarAsteroideGrande();
-        clearInterval(intervaloAsteroid);
-    }
-}, 10000);
+        clearInterval(intervaloAsteroid); // Para os asteroides pequenos
 
+        // Depois de 5 segundos, mostra "FINAL ROUND"
+        setTimeout(() => {
+            exibirFinalRound(() => {
+                criarAsteroideGrande(); // Depois do texto, entra o asteroide grande
+            });
+        }, 5000);
+    }
+}, 30000);
+
+// <- Função para mostrar o texto na tela
+function exibirFinalRound(callback) {
+    const texto = "FINAL ROUND";
+    const tempoExibicao = 3000;
+    const inicio = Date.now();
+
+    function mostrarTexto() {
+        const agora = Date.now();
+        const tempoDecorrido = agora - inicio;
+
+        ctx.save();
+        ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "white";
+        ctx.font = "bold 60px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText(texto, canvas.width / 2, canvas.height / 2);
+        ctx.restore();
+
+        if (tempoDecorrido < tempoExibicao) {
+            requestAnimationFrame(mostrarTexto);
+        } else {
+            callback();
+        }
+    }
+
+    mostrarTexto();
+}
 
 function criarTiro(x, y) {
     return {
@@ -181,7 +211,6 @@ document.addEventListener('keyup', function(event){
     teclasPressionadas[tecla] = false;
 });
 
-
 function colidiu(a, b) {
     return a.x < b.x + b.largura &&
            a.x + a.largura > b.x &&
@@ -189,11 +218,9 @@ function colidiu(a, b) {
            a.y + a.altura > b.y;
 }
 
-
 function reiniciarJogo() {
     location.reload(); 
 }
-
 
 function animacao() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -217,7 +244,6 @@ function animacao() {
         tiros[i].desenha();
     }
 
-   
     for (let i = 0; i < tiros.length; i++) {
         for (let j = 0; j < asteroides.length; j++) {
             if (!asteroides[j].destruido && colidiu(tiros[i], asteroides[j])) {
