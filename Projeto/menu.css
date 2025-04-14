@@ -1,0 +1,28 @@
+*{
+    margin: 0%;
+}
+
+.fundo{
+    bottom: 0;
+}
+.foguete{
+    top: 0%;
+}
+.espaco {
+    position: relative;
+}
+.fundo {
+   position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.foguete {
+    padding-left: 1200px;
+    padding-top: 260px;
+    position: absolute;
+    width: 550px;
+    z-index: 1;
+}
+
