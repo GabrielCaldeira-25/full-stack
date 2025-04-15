@@ -20,9 +20,41 @@
 
 .foguete {
     padding-left: 1200px;
-    padding-top: 260px;
+    padding-top: 200px;
     position: absolute;
-    width: 550px;
+    width: 600px;
     z-index: 1;
 }
 
+@font-face {
+    font-family: 'pixel';
+    src: url('Pixel\ Emulator.otf');
+}
+.nome{
+    position: absolute;
+    z-index: 1;
+    font-size: 80px;
+    font-family: 'pixel';
+    color: yellow;
+    text-shadow: 6px 6px 0 black;
+    padding-left: 410px;
+    padding-top: 280px;
+    
+}
+.lista{
+    position: absolute;
+    z-index: 1;
+    list-style: none;
+    padding-left: 600px;
+    padding-top: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+    color: yellow;
+    font-family: 'pixel';
+    font-size: 45px;
+    text-shadow: 5px 5px 0 black;
+}

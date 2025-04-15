@@ -1,8 +1,14 @@
+
+*{
+  margin: 0;
+}
 #jogo{
-    background-color: grey;
+    background-image: url('espaço.png');
     position: absolute;
+    z-index: 2;
     left:25%;
     top: 20%;
+    border: 2px solid black;
 }
 #modalGameOver {
     display: none;
@@ -87,3 +93,72 @@
   #modalWin button:hover {
     background-color: #ddd;
   }
+  .espaco {
+    position: relative;
+}
+.fundo {
+   position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.foguete {
+    padding-left: 1370px;
+    padding-top: 200px;
+    position: absolute;
+    width: 600px;
+    z-index: 1;
+}
+img{
+  filter:brightness(50%);
+}
+@font-face {
+  font-family: 'pixel';
+  src: url('Pixel\ Emulator.otf');
+}
+.nome{
+  position: absolute;
+  z-index: 1;
+  font-size: 80px;
+  font-family: 'pixel';
+  color: yellow;
+  text-shadow: 6px 6px 0 black;
+  display: flex;
+  left: 33%;
+  padding-top: 22px;
+  
+}
+.lista {
+  position: absolute;
+  top: 115px;
+  left: 970px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 40px; 
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1;
+}
+a{
+  text-decoration: none;
+  color: yellow;
+  font-family: 'pixel';
+  font-size: 26px;
+  text-shadow: 5px 5px 0 black;
+  gap: 20px;
+}
+a::before {
+  content: '⇨';
+  opacity: 0;
+  margin-right: 2px;
+  transition: opacity 0.3s, transform 0.3s;
+  transform: translateX(-5px);
+}
+
+a:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
