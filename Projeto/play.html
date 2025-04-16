@@ -7,17 +7,23 @@
     <link rel="stylesheet" href="play.css">
 </head>
 <body>
+    <div id="telaInicio">
+        <h1>Bem-vindo ao Interestelar</h1>
+        <button onclick="iniciarJogo()">Jogar</button><br>
+        <h1 class="instru">use as setas para subir e descer<br></h1>
+        <h1 class="instru1">e o espaço para atirar</h1>
+      </div>
 <canvas id="jogo" height="500px" width="1000px"></canvas>
 <div id="modalGameOver">
     <div class="modal-content">
-        <h1>💥 Game Over!</h1>
-        <p>A Terra foi atingida! Tente de novo.</p>
+        <h1>Game Over</h1>
+        <p>A Terra foi atingida. Tente de novo.</p>
         <button onclick="reiniciarJogo()">Tentar de novo</button>
     </div>
 </div>
 
 <div id="modalWin">
-    <p>YOU WIN!</p>
+    <p>YOU WIN</p>
     <button onclick="reiniciarJogo()">Jogar Novamente</button>
   </div>
 
@@ -29,7 +35,7 @@
     <p class="nome">Interestelar</p>
     <ul class="lista">
         <li><a href="../Projeto/menu.html">Menu</a></li>
-        <li><a href="">Home</a></li>
+        <li><a href="../Projeto/instru.html">instrustions</a></li>
         <li><a href="">About Me</a></li>
     </ul>
 </div>

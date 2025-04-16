@@ -45,7 +45,7 @@
     position: absolute;
     z-index: 1;
     list-style: none;
-    padding-left: 600px;
+    padding-left: 520px;
     padding-top: 400px;
     display: flex;
     flex-direction: column;
@@ -58,3 +58,15 @@ a{
     font-size: 45px;
     text-shadow: 5px 5px 0 black;
 }
+a::before {
+    content: '➤'; 
+    opacity: 0;
+    margin-right: 4px;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateX(-5px);
+  }
+  
+  a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+  }
