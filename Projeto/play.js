@@ -79,7 +79,7 @@ let canvas = document.getElementById('jogo');
           setTimeout(() => {
             clearInterval(intervaloTempo);
             document.getElementById("modalWin").style.display = "flex";
-          }, 2000);
+          }, 1000);
         }
       };
       novo.img.src = 'asteroid.png';
