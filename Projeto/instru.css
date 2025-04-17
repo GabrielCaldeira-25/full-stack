@@ -2,8 +2,9 @@
 *{
     margin: 0%;
 }
-body{
+body {
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 .espaco {
     position: relative;

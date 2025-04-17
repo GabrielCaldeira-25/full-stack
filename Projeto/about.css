@@ -1,0 +1,98 @@
+*{
+    margin: 0%;
+}
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+.espaco {
+  position: relative;
+}
+.fundo {
+ position: absolute;
+  z-index: 0;
+}
+
+.foguete {
+  padding-left: 1370px;
+  padding-top: 200px;
+  position: absolute;
+  width: 600px;
+  z-index: 1;
+}
+img{
+filter:brightness(50%);
+}
+@font-face {
+font-family: 'pixel';
+src: url('Pixel\ Emulator.otf');
+}
+.nome{
+position: absolute;
+z-index: 1;
+font-size: 80px;
+font-family: 'pixel';
+color: yellow;
+text-shadow: 6px 6px 0 black;
+display: flex;
+left: 32%;
+padding-top: 22px;
+
+}
+.lista {
+position: absolute;
+top: 115px;
+left: 956px;
+transform: translateX(-50%);
+display: flex;
+gap: 40px; 
+list-style: none;
+padding: 0;
+margin: 0;
+z-index: 1;
+}
+.espaco a{
+text-decoration: none;
+color: yellow;
+font-family: 'pixel';
+font-size: 26px;
+text-shadow: 5px 5px 0 black;
+gap: 20px;
+}
+.espaco a::before {
+content: '➤'; 
+opacity: 0;
+margin-right: 2px;
+transition: opacity 0.3s, transform 0.3s;
+transform: translateX(-5px);
+}
+
+.espaco a:hover::before {
+opacity: 1;
+transform: translateX(0);
+}
+.perfil{
+    position: absolute;
+    z-index: 3;
+}
+
+.about{
+    position: absolute;
+    z-index: 2;
+    background-color: gray;
+    height: 300px;
+    width: 700px;
+    padding: 10px;
+    margin-top: 300px;
+    margin-left: 600px;
+    border: 2px solid black;
+}
+.list2{
+    position: absolute;
+    z-index: 3;
+    list-style: none;
+    font-size: 20px;
+    padding-left: 320px;
+    padding-top: 45px;
+    font-family: 'pixel';
+}

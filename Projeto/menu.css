@@ -1,6 +1,10 @@
 *{
     margin: 0%;
 }
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
 
 .fundo{
     bottom: 0;
