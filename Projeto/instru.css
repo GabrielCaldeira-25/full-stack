@@ -78,7 +78,7 @@ a:hover::before {
     background-color: rgb(133, 133, 133);
     position: absolute;
     z-index: 3;
-    margin-top: 300px;
+    margin-top: 200px;
     margin-left: 510px;
     color: yellow;
     font-family: 'pixel';
@@ -94,4 +94,28 @@ a:hover::before {
 }
 .goodluck{
     font-size: 30px;
+}
+.subtitle{
+  font-size: 30px;
+}
+.sobre2 {
+  background-color: rgb(133, 133, 133);
+  position: absolute;
+  z-index: 3;
+  margin-top: 600px;
+  margin-left: 800px;
+  color: yellow;
+  font-family: 'pixel';
+  font-size: 20px;
+  text-shadow: 3px 3px 0 black;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  
 }
