@@ -1,0 +1,153 @@
+*{
+    margin: 0%;
+}
+
+body{
+    position: relative;
+    z-index: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.imagem{
+    height: 100vh;
+    width: 130vh;
+    position: absolute;
+    z-index: 1;
+    transform: scaleX(-1); 
+    margin-left: 700px;
+}
+h1, h2, p, form, a{
+    position: absolute;
+    z-index: 2;
+}
+.remember{
+    width: 400px;
+    font-size: 20px;
+    margin-top: 500px;
+}
+.forgot{
+    background: linear-gradient(to right, rgb(148, 2, 233), rgb(2, 64, 145));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.prime{
+    position: absolute;
+    top: 300px;
+    left: 120px;
+    height:30px;
+    width:450px; 
+}
+.segun{
+    position: absolute;
+    top: 360px;
+    left: 120px;
+    height:30px;
+    width:450px;
+}
+
+.account{
+    margin-top: 230px;
+    margin-left: 200px;
+    font-size: 20px;
+    display: flex;
+    width: 400px;
+    
+}
+h2{
+    font-size: 35px;
+    padding-top: 170px;
+    padding-left: 300px;
+}
+h1{
+    display: flex;
+    padding-left: 100px;
+}
+.second{
+    margin-left: 200px;
+    font-size: 60px;
+}
+.first{
+    background: linear-gradient(to right, rgb(148, 2, 233), rgb(2, 64, 145));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-left: 85px;
+    font-size: 60px;
+}
+.account2{
+    background: linear-gradient(to right, rgb(148, 2, 233), rgb(2, 64, 145));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    margin-left: 190px;
+    
+}
+
+input[type="submit"]{
+    position: absolute;
+    z-index: 2;
+    top: 450px;
+    left: 120px;
+    height:45px;
+    width:458px;
+    background: linear-gradient(to right, rgb(148, 2, 233), rgb(2, 64, 145));
+    color: white
+    
+}
+.check{
+    position: absolute;
+    display: flex;
+    left:60px;
+    top:208px
+    
+    
+}
+.check1{
+    position: absolute;
+    display: flex;
+    width: 200px;
+    margin-left: 20px;
+    background: linear-gradient(to right, rgb(148, 2, 233), rgb(2, 64, 145));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    left:120px;
+    top:414px;
+    
+    
+}
+main{
+    display: flex;
+}
+.title{
+    padding-left: 160px;
+    padding-top: 90px;
+}
+.remember{
+    left:265px;
+    top:30px
+}
+.terms, .policy{
+    display: flex;
+    color: black;
+    width:200px
+}
+.final{
+    display: flex;
+    text-align: center;
+    margin-top: 700px;
+    margin-left:190px
+}
+.policy{
+    left:380px;
+    top:750px
+    
+}
+.terms{
+    left: 228px;
+    top:750px
+}
+.linha{
+    left:357px;
+    top:750px
+}
+
+
