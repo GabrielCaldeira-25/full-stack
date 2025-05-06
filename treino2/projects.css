@@ -38,6 +38,8 @@ a{
     list-style: none;
 }
 main{
+    position: relative;
+    z-index: 0;
     background-color: gray;
     background-size: cover;
     height: 50vh;
@@ -45,10 +47,11 @@ main{
     
     }
 table{
+position: absolute;
+z-index: 1;
 width: 250px;
-transform: translateY(300%);
-margin-left:auto;
-margin-right:auto;
+margin-top: 160px;
+margin-left:820px;
 border-collapse: collapse;
 padding: 5px;
 
@@ -65,7 +68,7 @@ border: 1px solid black;
 
 }
 .momo{
-
+padding-top:50px;
 margin-left:775px;
 
 }
