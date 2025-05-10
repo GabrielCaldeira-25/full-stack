@@ -3,6 +3,7 @@ var express = require('express');
 var colors = require('colors');
 var bodyParser = require('body-parser');
 
+
 var app = express();
 app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({ extended: false}))
@@ -27,3 +28,8 @@ var sobrenome = requisicao.query.sobrenome;
 
 resposta.render('resposta_cadastro', {nome, sobrenome})
 })
+
+
+
+
+
