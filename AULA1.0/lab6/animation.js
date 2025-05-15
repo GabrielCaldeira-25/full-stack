@@ -23,7 +23,7 @@ function animation(){
     
 animation()
 
-document.addEventListener ('mousemove', function(evento){
+canvas.addEventListener ('mousemove', function(evento){
     let rect = canvas.getBoundingClientRect()
     let x_mouse = evento.clientX - rect.left
     let y_mouse = evento.clientY - rect.top

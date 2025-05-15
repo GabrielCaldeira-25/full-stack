@@ -40,7 +40,7 @@ a{
 }
 
 main{
-background-color: gray;
+  background: linear-gradient(to right, rgb(148, 2, 233), rgb(2, 64, 145));
 background-size: cover;
 height: 50vh;
 
