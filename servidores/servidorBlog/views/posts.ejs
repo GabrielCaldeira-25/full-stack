@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Posts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+    
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+    
+        .voltar a {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    
+        .post {
+            display: table;
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    
+        .post div {
+            display: table-row;
+        }
+    
+        .post div span {
+            display: table-cell;
+            padding: 10px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+    
+        .post-title {
+            font-weight: bold;
+            background-color: #f0f8ff;
+        }
+    
+        .post-resumo {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="voltar">
+            <a href="/">Criar Novo Post</a>
+        </div>
+        <% if (posts.length === 0) { %>
+            <p>Nenhum post cadastrado ainda.</p>
+        <% } else { %>
+            <% posts.forEach(function(post) { %>
+                <div class="post">
+                    <strong> Titulo: <%= post.db_titulo %></strong><br>
+                    <em>Resumo: <%= post.db_resumo %></em><br>
+                    <p>Conteudo: <%= post.db_conteudo %></p>
+                </div>
+            <% }); %>
+        <% } %>
+    </div>
+</body>
+</html>
